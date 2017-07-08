@@ -1,5 +1,5 @@
 "use strict";
-let socket = io.connect("http://localhost:8080", {
+let socket = io.connect("/", {
 	forceNew: true
 })
 

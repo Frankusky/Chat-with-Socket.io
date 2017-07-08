@@ -3,6 +3,7 @@ let express = require("express"),
 	app = express(),
 	server = require("http").Server(app),
 	io = require("socket.io")(server);
+app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static("public"));
 
@@ -17,6 +18,6 @@ io.on("connection", (socket)=>{
 	})
 });
 
-server.listen(8080, ()=>{
-	console.log("Servidor corriendo en puerto 8080")
+server.listen(app.get("port"), ()=>{
+	console.log("Servidor corriendo en puerto " + app.get("port"))
 })
