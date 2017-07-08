@@ -1,16 +1,10 @@
 "use strict";
 let express = require("express"),
 	app = express(),
-	bodyParser = require("body-parser"),
-	methodOverride = require("method-override"),
-	mongoose = require("mongoose"),
 	server = require("http").Server(app),
 	io = require("socket.io")(server);
 
 app.use(express.static("public"));
-app.use(bodyParser.urlencoded({ extended: false }));  
-app.use(bodyParser.json());  
-app.use(methodOverride());
 
 app.get("/", (req, res)=>{
 	res.status(200);
